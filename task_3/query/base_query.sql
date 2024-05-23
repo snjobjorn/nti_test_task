@@ -1,0 +1,1 @@
+UPDATE fact_detail SET add_info = add_info || '{text}' WHERE fact_detail_ID = {fact_detail_id}
