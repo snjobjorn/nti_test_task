@@ -1,5 +1,48 @@
 # Задание 1
 
+**Текст задания**
+<details>
+  <summary>Текст задания находится в этом скрытом блоке</summary>
+  
+  1. Опираясь на приведенную ERD и таблицы со списком атрибутов (для удобства копирования), составить базовый запрос, демонстрирующий для каждого user все его актуальные факты деятельности (fact), детали деятельности (fact_detail) и источники данных, от которых получены эти факты деятельности (source), со статистикой по количеству фактов деятельности и деталей деятельности для каждого user. Для каждой детали деятельности (fact_detail) вывести словарные значения ее типа и типа результата. Данные отсортировать по дате записи в базу (ts) в рамках каждого user.
+  Таблицы:
+  source (200 записей)
+  source_ID (PK)
+  source_external_ID : varchar 
+  source_title : varchar 
+  source_description : varchar 
+  source_add_info : varchar 
+  is_deleted : int(1) Boolean признак того, что запись считается недействительной (soft delete)
+  ts : datetime
+  fact (2500 записей)
+  fact_ID (PK)
+  user_ID (FK)
+  source_ID (FK)
+  dict_fact_type_ID (FK) 
+  fact_external_ID : varchar 
+  fact_start_date : datetime 
+  fact_end_date : datetime 
+  fact_title : varchar 
+  fact_description : varchar 
+  fact_add_info : varchar 
+  fact_string : varchar 
+  fact_tag : varchar
+  is_teambased : int(1) 
+  is_deleted : int(1) Boolean признак того, что запись считается недействительной (soft delete)
+  ts : datetime
+  fact_detail (30000 записей)
+  fact_detail_ID 
+  fact_ID 
+  dict_detail_type_ID
+  dict_result_value_type_ID
+  result_scale_info_ID : int (nullable)
+  key : varchar 
+  value : varchar 
+  add_info : varchar
+  is_deleted : int(1) Boolean признак того, что запись считается недействительной (soft delete)
+  ts : datetime
+</details>
+
 В файле "task_1/query/base_query.sql" находится SQL запрос к базе данных согласно заданию, описанному в корневом README.md.
 
 В файле "task_1/query/base_query.sql" находится тот же SQL запрос с комментариями:
